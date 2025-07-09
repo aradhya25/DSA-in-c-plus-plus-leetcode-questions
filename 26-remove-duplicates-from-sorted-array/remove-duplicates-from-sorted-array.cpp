@@ -1,25 +1,25 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        // int j=1;
-        // for(int i=1;i<nums.size();i++){
-        //     if(nums[i]!=nums[i-1]){
-        //         nums[j]=nums[i];
-        //         j++;
-        //     }
+       int i=0;
+       for(int j=1;j<nums.size();j++){
+        if(nums[j]!=nums[i]){
+            nums[i+1]=nums[j];
+            i++;
+        }
+       }
+       return i+1;
+    //brute force soln
+        // set<int>st;
+        // for(int i=0;i<nums.size();i++){
+        //     st.insert(nums[i]);
         // }
-        // return j;
+        // int idx=0;
+        // for(auto it:st){
+        //     nums[idx]=it;
+        //     idx++;
 
-        set<int>st;
-        for(int i=0;i<nums.size();i++){
-            st.insert(nums[i]);
-        }
-        int idx=0;
-        for(auto it:st){
-            nums[idx]=it;
-            idx++;
-
-        }
-        return idx;
+        // }
+        // return idx;
     }
 };
