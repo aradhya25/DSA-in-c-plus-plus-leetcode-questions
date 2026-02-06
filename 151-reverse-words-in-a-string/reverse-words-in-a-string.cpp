@@ -2,20 +2,13 @@ class Solution {
 public:
     string reverseWords(string s) {
         stringstream ss(s);
-        vector<string> words;
-        string word;
+        string word, result;
 
         while (ss >> word) {
-            words.push_back(word);
+            result = word + " " + result;
         }
 
-        reverse(words.begin(), words.end());
-
-        string result;
-        for (auto& w : words) {
-            result += w + " ";
-        }
-         result.pop_back();
-         return result;
+        result.pop_back();   // remove last space
+        return result;
     }
 };
