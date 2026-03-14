@@ -17,29 +17,45 @@ public:
         if(head->next==NULL){
             return true;
         }
+        // ListNode*temp=head;
+        // int len=0;
+        // while(temp!=NULL){
+        //     len++;
+        //     temp=temp->next;
+        // }
+        // temp=head;
+        // int arr[len];
+        // for(int i=0;i<len;i++){
+        //     arr[i]=temp->val;
+        //     temp=temp->next;
+        // }
+        // temp=head;
+        // bool flag=false;
+        // for(int i=len-1;i>=0;i--){
+        //     if(arr[i]==temp->val){
+        //         flag=true;
+        //     }else{
+        //         flag=false;
+        //         break;
+        //     }
+        //     temp=temp->next;
+        // }
+        // return flag;
+
         ListNode*temp=head;
-        int len=0;
+        stack<int>st;
         while(temp!=NULL){
-            len++;
+            st.push(temp->val);
             temp=temp->next;
         }
         temp=head;
-        int arr[len];
-        for(int i=0;i<len;i++){
-            arr[i]=temp->val;
-            temp=temp->next;
-        }
-        temp=head;
-        bool flag=false;
-        for(int i=len-1;i>=0;i--){
-            if(arr[i]==temp->val){
-                flag=true;
-            }else{
-                flag=false;
-                break;
+        while(temp!=NULL){
+            if(temp->val!=st.top()){
+                return false;
             }
             temp=temp->next;
+            st.pop();
         }
-        return flag;
+        return true;
     }
 };
